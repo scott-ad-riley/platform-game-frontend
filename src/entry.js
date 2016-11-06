@@ -5,9 +5,7 @@ import create from './create'
 import update from './update'
 
 window.onload = function () {
-  // until we know how we can workaround phaser's style of global everything
-  // we will namespace it under game_objs in the global state for now
+  // namespace all of our game elements so we can separate them apart in methods
   window.game_objs = {};
-
-  createGame(800, 600, 'game-container', { preload, create, update })
+  new Phaser.Game(800, 600, Phaser.AUTO, 'game-container', { preload, create, update })
 }
