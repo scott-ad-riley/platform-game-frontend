@@ -5,7 +5,7 @@ const update = function () {
 
   ns.background.tilePosition.x = -(this.camera.x * 0.7);
 
-  let hitPlatform = this.game.physics.arcade.collide(ns.player, ns.top_ground)
+  let hitPlatform = this.game.physics.arcade.collide(ns.player, ns.one_top_ground)
 
   let cursors = this.game.input.keyboard.createCursorKeys()
 

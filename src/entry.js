@@ -1,5 +1,3 @@
-import createGame from './models/game.js'
-
 import preload from './preload'
 import create from './create'
 import update from './update'

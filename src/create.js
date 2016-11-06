@@ -1,10 +1,12 @@
+import Generate from './generators/index'
+
 const create = function () {
   let ns = window.game_objs
-  let sw = 1024 // sprite width
-  let sh = 1024 // sprite height
-  let bw = 48 // block_width
-  let bh = 48 // block_height
-  let floor_level =50
+  ns.sw = 1024 // sprite width
+  ns.sh = 1024 // sprite height
+  ns.bw = 48 // block_width
+  ns.bh = 48 // block_height
+  let floor_level = 50
 
   this.world.resize(800*3, 600)  
   this.game.physics.startSystem(Phaser.Physics.ARCADE)
@@ -12,36 +14,17 @@ const create = function () {
   ns.background = this.game.add.tileSprite(0, 0, 1024, 1024, 'background')
   ns.background.fixedToCamera = true
 
+  ns.one_top_ground = Generate.Floor.call(this, 
+    {x: 0, y: this.game.world.height - floor_level}, 
+    {x: ns.sw * 600, y: ns.bh}, 
+    'one.surface'
+  )
 
-  ns.top_ground = this.game.add.tileSprite(0, this.game.world.height - floor_level, sw * 600, bh, 'one.surface')
-
-  this.game.physics.arcade.enable(ns.top_ground)
-  ns.top_ground.tileScale.x = bw / sw
-  ns.top_ground.tileScale.y = bh / sh
-  ns.top_ground.enableBody = true
-  ns.top_ground.body.immovable = true
-
-  ns.underground = this.game.add.tileSprite(0, this.game.world.height - floor_level + bh, sw * 600, bh, 'one.underground')
-
-  ns.underground.tileScale.x = bw / sw
-  ns.underground.tileScale.y = bh / sh
-
-  // //  This stops it from falling away when you jump on it
-
-  //  The platforms group contains the ground and the 2 ledges we can jump on
-  // ns.platforms = this.game.add.group()
-
-  //  We will enable physics for any object that is created in this group
-  // ns.platforms.enableBody = true
-
-  // Here we create the ground.
-  // ns.ground = ns.platforms.create(0, this.game.world.height - 32, 'ground')
-
-  // //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-  // ns.ground.scale.x = this.game.world.width
-
-  // //  This stops it from falling away when you jump on it
-  // ns.ground.body.immovable = true
+  ns.one_undeground = Generate.Floor.call(this,
+    {x: 0, y: this.game.world.height - floor_level + ns.bh}, 
+    {x: ns.sw * 600, y: ns.bh}, 
+    'one.underground'
+  )
 
   //  Now let's create two ledges
   // ns.ledge = ns.platforms.create(400, 400, 'ground')
