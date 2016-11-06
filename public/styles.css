@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+}
+
+.game-box {
+  margin-top: 10rem;
+}
+
+.game-box canvas {
+  margin: 0 auto;
+}
