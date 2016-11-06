@@ -45,7 +45,7 @@ const create = function () {
   ns.player.body.collideWorldBounds = true
 
   //  Our two animations, walking left and right.
-  ns.player.animations.add('static', [0, 1], 10, true)
+  ns.player.animations.add('static', [0, 1], 2, true)
   ns.player.animations.add('right', [2, 3, 4, 5, 6, 7, 8], 10, true)
   ns.player.animations.add('left', [9, 10, 11, 12, 13, 14, 15], 10, true)
 

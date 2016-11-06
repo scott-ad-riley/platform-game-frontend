@@ -16,7 +16,6 @@ const update = function () {
     ns.player.body.velocity.x = 150
     ns.player.animations.play('right')
   } else {
-    ns.player.animations.stop()
     ns.player.animations.play('static')
   }
 
