@@ -6,25 +6,40 @@ const create = function () {
   ns.sh = 1024 // sprite height
   ns.bw = 64 // block_width
   ns.bh = 64 // block_height
-  let floor_level = 70
+  ns.floor_level = 70
 
-  this.world.resize(800*3, 600)  
+  this.world.resize(800*3, 600)
   this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
-  ns.background = this.game.add.tileSprite(0, 0, ns.sw, ns.sh, 'background')
+  ns.background = this.game.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'background')
   ns.background.fixedToCamera = true
 
-  ns.one_top_ground = Generate.Floor.call(this, 
-    {x: 0, y: this.game.world.height - floor_level}, 
-    {x: ns.sw * 600, y: ns.bh}, 
-    'one.surface'
-  )
+  ns.hazards = this.game.add.physicsGroup()
+  ns.ground = this.game.add.physicsGroup()
 
-  ns.one_undeground = Generate.Floor.call(this,
-    {x: 0, y: this.game.world.height - floor_level + ns.bh}, 
-    {x: ns.sw * 600, y: ns.bh}, 
-    'one.underground'
-  )
+  let one_floors_1 = Generate.GroundFloor.call(this,
+      { start: 0, length: 300 }, 'one'
+    )
+  ns.ground.add(one_floors_1.surface)
+  ns.ground.add(one_floors_1.underground)
+
+  let one_spikes = Generate.PitWithPlatform.call(this,
+    300, ns.bw * 5, {gap: 130, offset: 80},
+    {
+      hazard: 'one.spikes',
+      underground: 'one.underground',
+      platform: 'one.surface'
+    })
+  ns.hazards.add(one_spikes.hazard)
+  ns.ground.add(one_spikes.underground)
+  ns.ground.add(one_spikes.platform)
+
+  let one_floors_2 = Generate.GroundFloor.call(this,
+      { start: 300 + ns.bw * 5, length: 300 }, 'one'
+    )
+  ns.ground.add(one_floors_2.surface)
+  ns.ground.add(one_floors_2.underground)
+
 
   //  Now let's create two ledges
   // ns.ledge = ns.platforms.create(400, 400, 'ground')
@@ -42,7 +57,7 @@ const create = function () {
   this.game.physics.arcade.enable(ns.player)
 
   //  Player physics properties. Give the little guy a slight bounce.
-  ns.player.body.gravity.y = 600
+  ns.player.body.gravity.y = 800
   ns.player.body.collideWorldBounds = true
 
   //  Our two animations, walking left and right.
