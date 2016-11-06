@@ -4,14 +4,14 @@ const create = function () {
   let ns = window.game_objs
   ns.sw = 1024 // sprite width
   ns.sh = 1024 // sprite height
-  ns.bw = 48 // block_width
-  ns.bh = 48 // block_height
-  let floor_level = 50
+  ns.bw = 64 // block_width
+  ns.bh = 64 // block_height
+  let floor_level = 70
 
   this.world.resize(800*3, 600)  
   this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
-  ns.background = this.game.add.tileSprite(0, 0, 1024, 1024, 'background')
+  ns.background = this.game.add.tileSprite(0, 0, ns.sw, ns.sh, 'background')
   ns.background.fixedToCamera = true
 
   ns.one_top_ground = Generate.Floor.call(this, 
