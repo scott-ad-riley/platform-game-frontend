@@ -1,4 +1,4 @@
-import Generate from './generators/index'
+import ZoneGenerators from './generators/zones/index.js'
 
 const create = function () {
   let ns = window.game_objs
@@ -16,23 +16,9 @@ const create = function () {
 
   ns.hazards = this.game.add.physicsGroup()
   ns.ground = this.game.add.physicsGroup()
+  ns.distance = 0
 
-  Generate.GroundFloor.call(this,
-      { start: 0, length: 300 }, 'one'
-    )
-
-  Generate.PitWithPlatform.call(this,
-    300, ns.bw * 5, {gap: 130, offset: 80},
-    {
-      hazard: 'one.spikes',
-      underground: 'one.underground',
-      platform: 'one.surface'
-    })
-
-  Generate.GroundFloor.call(this,
-      { start: 300 + ns.bw * 5, length: 300 }, 'one'
-    )
-
+  ZoneGenerators.Starter.call(this);
 
   //  Now let's create two ledges
   // ns.ledge = ns.platforms.create(400, 400, 'ground')
