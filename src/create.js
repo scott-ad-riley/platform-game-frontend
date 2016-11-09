@@ -17,28 +17,21 @@ const create = function () {
   ns.hazards = this.game.add.physicsGroup()
   ns.ground = this.game.add.physicsGroup()
 
-  let one_floors_1 = Generate.GroundFloor.call(this,
+  Generate.GroundFloor.call(this,
       { start: 0, length: 300 }, 'one'
     )
-  ns.ground.add(one_floors_1.surface)
-  ns.ground.add(one_floors_1.underground)
 
-  let one_spikes = Generate.PitWithPlatform.call(this,
+  Generate.PitWithPlatform.call(this,
     300, ns.bw * 5, {gap: 130, offset: 80},
     {
       hazard: 'one.spikes',
       underground: 'one.underground',
       platform: 'one.surface'
     })
-  ns.hazards.add(one_spikes.hazard)
-  ns.ground.add(one_spikes.underground)
-  ns.ground.add(one_spikes.platform)
 
-  let one_floors_2 = Generate.GroundFloor.call(this,
+  Generate.GroundFloor.call(this,
       { start: 300 + ns.bw * 5, length: 300 }, 'one'
     )
-  ns.ground.add(one_floors_2.surface)
-  ns.ground.add(one_floors_2.underground)
 
 
   //  Now let's create two ledges
