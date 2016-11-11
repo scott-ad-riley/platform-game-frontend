@@ -1,3 +1,5 @@
+import preload from '../preload_post_game_screen.js'
+
 const Fail = function () {
   this.textStyle = {
     fontSize: '32px',
@@ -22,7 +24,7 @@ Fail.prototype = {
     buttonText.setTextBounds(0, 245, 800, 400)
   },
   preload: function () {
-    this.game.load.image('base', '/img/white_button_box.png')
+    preload.call(this)
   },
   restart: function () {
 

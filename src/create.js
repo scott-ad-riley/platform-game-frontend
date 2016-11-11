@@ -45,12 +45,11 @@ const create = function () {
 
   ns.stars.enableBody = true
 
-  //  Here we'll create 12 of them evenly spaced apart
-    //  Create a star inside of the 'stars' group
-    let star = ns.stars.create(ns.distance, 0, 'diamond')
+  //  Create a star inside of the 'stars' group
+  let star = ns.stars.create(ns.distance, 0, 'diamond')
 
-    //  Let gravity do its thing
-    star.body.gravity.y = 10
+  //  Let gravity do its thing
+  star.body.gravity.y = 10
 
 
   // ns.score = 0

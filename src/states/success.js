@@ -1,3 +1,5 @@
+import preload from '../preload_post_game_screen.js'
+
 const Success = function () {
   this.textStyle = {
     fontSize: '32px',
@@ -11,18 +13,36 @@ const Success = function () {
     boundsAlignH: 'center',
     boundsAlignV: 'middle'
   }
+  this.textInputOpts = {
+    font: '12px Arial',
+    fill: '#212121',
+    fontWeight: 'bold',
+    width: 150,
+    padding: 8,
+    borderWidth: 1,
+    borderColor: '#000',
+    borderRadius: 3,
+    placeHolder: 'Enter Name'
+  }
+  this.inputValue = ""
 }
 
 Success.prototype = {
   create: function () {
     let text = this.game.add.text(0, 0, 'Congrats!', this.textStyle)
     text.setTextBounds(0, 0, 800, 400)
-    let button = this.game.add.button(314, 400, 'base', this.actionOnClick.bind(this))
-    let buttonText = this.game.add.text(0, 0, 'Restart', this.buttonTextStyle)
-    buttonText.setTextBounds(0, 245, 800, 400)
+    this.game.add.button(314, 400, 'base', this.actionOnClick.bind(this))
+    this.game.add.button(400, 270, 'base', this.submitScore.bind(this))
+    let submitText = this.game.add.text(0, 0, 'Submit', this.buttonTextStyle)
+    let restartText = this.game.add.text(0, 0, 'Restart', this.buttonTextStyle)
+    submitText.setTextBounds(0, 120, 990, 400)
+    restartText.setTextBounds(0, 245, 800, 400)
+    let inputField = this.game.add.inputField(225, 300, this.textInputOpts)
+    inputField.domElement.element.onkeyup = (e) => this.inputValue = e.target.value
   },
   preload: function () {
-    this.game.load.image('base', '/img/white_button_box.png')
+    this.game.add.plugin(Fabrique.Plugins.InputField)
+    preload.call(this)
   },
   restart: function () {
 
@@ -32,6 +52,9 @@ Success.prototype = {
   },
   actionOnClick: function () {
     this.state.start('Game')
+  },
+  submitScore: function () {
+    console.log(this.inputValue)
   }
 }
 
