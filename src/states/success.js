@@ -1,4 +1,5 @@
 import preload from '../preload_post_game_screen.js'
+import convertTime from '../convert_time.js'
 
 const Success = function () {
   this.textStyle = {
@@ -29,6 +30,7 @@ const Success = function () {
 
 Success.prototype = {
   create: function () {
+    let time = this.game.add.text(0, 0, 'Time: ' + convertTime(window.game_objs.game_time), this.textStyle)
     let text = this.game.add.text(0, 0, 'Congrats!', this.textStyle)
     text.setTextBounds(0, 0, 800, 400)
     this.game.add.button(314, 400, 'base', this.actionOnClick.bind(this))

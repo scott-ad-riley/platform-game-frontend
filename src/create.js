@@ -50,10 +50,18 @@ const create = function () {
 
   //  Let gravity do its thing
   star.body.gravity.y = 10
+  ns.timer = this.game.time.create();
+  // Add as many events as you like here, they are popped off the stack once the time is hit
+  ns.timer.start();
 
 
-  // ns.score = 0
-  // ns.scoreText = this.game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
+  //  Create our Timer
+  // ns.timer = this.game.time.create();
+
+  // ns.timer.start();
+
+  ns.timerText = this.game.add.text(16, 16, ns.timer.seconds, { fontSize: '32px', fill: '#fff' })
+  ns.timerText.fixedToCamera = true
 }
 
 export default create
