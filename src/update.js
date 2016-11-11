@@ -1,12 +1,11 @@
-import udedson from './death.js'
-
-const update = function () {
+const update = function (onFail, onSuccess) {
   let ns = window.game_objs
 
   ns.background.tilePosition.x = -(this.camera.x * 0.7);
 
   let hitGround = this.game.physics.arcade.collide(ns.player, ns.ground)
-  let hazardContact = this.game.physics.arcade.overlap(ns.player, ns.hazards, udedson)
+  let hazardContact = this.game.physics.arcade.overlap(ns.player, ns.hazards, onFail.bind(this))
+  // let successContact = this.game.physics.arcade.overlap(ns.player, ns.finishLine, onSuccess.bind(this))
 
   let cursors = this.game.input.keyboard.createCursorKeys()
 
@@ -27,9 +26,9 @@ const update = function () {
   }
 
 
-  // this.game.physics.arcade.collide(ns.stars, ns.platforms)
+  this.game.physics.arcade.collide(ns.stars, ns.ground)
+  this.game.physics.arcade.overlap(ns.player, ns.stars, onSuccess.bind(this), null, this.game)
 
-  // this.game.physics.arcade.overlap(ns.player, ns.stars, collectStar.bind(ns), null, this)
 
 }
 

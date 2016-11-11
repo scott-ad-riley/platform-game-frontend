@@ -11,7 +11,7 @@ const create = function () {
   this.world.resize(800*3, 600)
   this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
-  ns.background = this.game.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'background')
+  ns.background = this.game.add.tileSprite(0, 0, this.world.width, this.world.height, 'background')
   ns.background.fixedToCamera = true
 
   ns.hazards = this.game.add.physicsGroup()
@@ -23,17 +23,9 @@ const create = function () {
 
   ns.distance += ZoneGenerators.Starter.call(this);
 
-  //  Now let's create two ledges
-  // ns.ledge = ns.platforms.create(400, 400, 'ground')
-
-  // ns.ledge.body.immovable = true
-
-  // ns.ledge = ns.platforms.create(-150, 250, 'ground')
-
-  // ns.ledge.body.immovable = true
 
  // The player and its settings
-  ns.player = this.game.add.sprite(32, 0, 'dude')
+  ns.player = this.game.add.sprite(32, 32, 'dude')
 
   //  We need to enable physics on the player
   this.game.physics.arcade.enable(ns.player)
@@ -49,21 +41,17 @@ const create = function () {
   this.camera.follow(ns.player)
 
 
-  // ns.stars = this.game.add.group()
+  ns.stars = this.game.add.group()
 
-  // ns.stars.enableBody = true
+  ns.stars.enableBody = true
 
-  // //  Here we'll create 12 of them evenly spaced apart
-  // for (var i = 0; i < 12; i++) {
-  //   //  Create a star inside of the 'stars' group
-  //   let star = ns.stars.create(i * 70, 0, 'star')
+  //  Here we'll create 12 of them evenly spaced apart
+    //  Create a star inside of the 'stars' group
+    let star = ns.stars.create(ns.distance, 0, 'diamond')
 
-  //   //  Let gravity do its thing
-  //   star.body.gravity.y = 6
+    //  Let gravity do its thing
+    star.body.gravity.y = 10
 
-  //   //  This just gives each star a slightly random bounce value
-  //   star.body.bounce.y = 0.7 + Math.random() * 0.2
-  // }
 
   // ns.score = 0
   // ns.scoreText = this.game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })

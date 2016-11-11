@@ -1,4 +1,5 @@
 const preload = function () {
+  this.game.load.image('diamond', '/img/diamond.png')
   this.game.load.image('ground', '/img/platform.png')
   this.game.load.image('one.surface', '/img/tiles/start_ground_block.png')
   this.game.load.image('one.underground', '/img/tiles/start_underground_block.png')
