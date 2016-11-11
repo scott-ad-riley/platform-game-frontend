@@ -19,6 +19,8 @@ const GroundFloor = function (dimensions, zone) {
       },
       zone + '.underground'
     )
+
+  return dimensions.length
 }
 
 export default GroundFloor

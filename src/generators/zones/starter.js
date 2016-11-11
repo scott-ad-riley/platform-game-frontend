@@ -9,7 +9,7 @@ const Starter = function () {
     )
 
   distance += GroupGenerators.PitWithPlatform.call(this,
-    300, ns.bw * 5, {gap: 130, offset: 80},
+    distance, ns.bw * 5, {gap: 130, offset: 80},
     {
       hazard: 'one.spikes',
       underground: 'one.underground',
@@ -17,7 +17,24 @@ const Starter = function () {
     })
 
   distance += GroupGenerators.GroundFloor.call(this,
-      { start: 300 + ns.bw * 5, length: 300 }, 'one'
+      { start: distance, length: 300 }, 'one'
+    )
+
+  distance += GroupGenerators.PlatformClimb.call(this,
+    distance,
+    {
+      left_platform_count: 1,
+      gap: 140,
+      platform:{
+        height: 15,
+        width: 25
+      },
+    },
+    {
+      platform: 'one.underground',
+      hazard: 'one.vine',
+      hazard_top: 'one.vine_top'
+    }
     )
 
   return distance

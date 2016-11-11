@@ -21,6 +21,7 @@ const PitWithPlatform = function (start, length, config, sprites) {
       width: length - config.offset * 2, height: ns.bh
     }, sprites.platform)
 
+  return length
 }
 
 export default PitWithPlatform

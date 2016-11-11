@@ -23,7 +23,7 @@ const update = function () {
   }
 
   if (cursors.up.isDown && ns.player.body.touching.down && hitGround) {
-    ns.player.body.velocity.y = -480
+    ns.player.body.velocity.y = -570
   }
 
 

@@ -16,9 +16,12 @@ const create = function () {
 
   ns.hazards = this.game.add.physicsGroup()
   ns.ground = this.game.add.physicsGroup()
+
+  ZoneGenerators.OffScreenWall.call(this)
+
   ns.distance = 0
 
-  ZoneGenerators.Starter.call(this);
+  ns.distance += ZoneGenerators.Starter.call(this);
 
   //  Now let's create two ledges
   // ns.ledge = ns.platforms.create(400, 400, 'ground')
@@ -36,8 +39,7 @@ const create = function () {
   this.game.physics.arcade.enable(ns.player)
 
   //  Player physics properties. Give the little guy a slight bounce.
-  ns.player.body.gravity.y = 800
-  ns.player.body.collideWorldBounds = true
+  ns.player.body.gravity.y = 1200
 
   //  Our two animations, walking left and right.
   ns.player.animations.add('static', [0, 1], 2, true)
