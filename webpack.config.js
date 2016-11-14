@@ -1,8 +1,11 @@
 config = {
-  entry: "./src/entry.js",
+  entry: {
+    game: "./src/entry.js",
+    leaderboard: "./src/leaderboard.js"
+  },
   output: {
     path: "./build",
-    filename: "bundle.js"
+    filename: "[name].js"
   },
   resolve: {
     extensions: ['', '.js']
