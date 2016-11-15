@@ -33,8 +33,8 @@ Success.prototype = {
     let time = this.game.add.text(0, 0, 'Time: ' + convertTime(window.game_objs.game_time), this.textStyle)
     let text = this.game.add.text(0, 0, 'Congrats!', this.textStyle)
     text.setTextBounds(0, 0, 800, 400)
-    this.game.add.button(314, 400, 'base', this.actionOnClick.bind(this))
-    this.game.add.button(400, 270, 'base', this.submitScore.bind(this))
+    this.game.add.button(314, 400, 'base', ::this.restart)
+    this.game.add.button(400, 270, 'base', ::this.submitScore)
     let submitText = this.game.add.text(0, 0, 'Submit', this.buttonTextStyle)
     let restartText = this.game.add.text(0, 0, 'Restart', this.buttonTextStyle)
     submitText.setTextBounds(0, 120, 990, 400)
@@ -46,13 +46,10 @@ Success.prototype = {
     this.game.add.plugin(Fabrique.Plugins.InputField)
     preload.call(this)
   },
-  restart: function () {
-
-  },
   viewLeaderboard: function () {
-
+    window.location.href = window.location.href + "leaderboard"
   },
-  actionOnClick: function () {
+  restart: function () {
     this.state.start('Game')
   },
   submitScore: function () {
