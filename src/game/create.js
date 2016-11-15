@@ -1,5 +1,7 @@
 import ZoneGenerators from './generators/zones/index.js'
 
+import timerTextStyles from './styles/timer_text.js'
+
 const create = function () {
   let ns = window.game_objs
   ns.sw = 1024 // sprite width
@@ -59,8 +61,8 @@ const create = function () {
   // ns.timer = this.game.time.create();
 
   // ns.timer.start();
-
-  ns.timerText = this.game.add.text(16, 16, ns.timer.seconds, { fontSize: '32px', fill: '#fff' })
+  ns.timerText = this.game.add.text(0, 0, ns.timer.seconds, timerTextStyles)
+  ns.timerText.setTextBounds(0, 50, 200, 50)
   ns.timerText.fixedToCamera = true
 }
 
