@@ -1,4 +1,4 @@
-import convertTime from './convert_time'
+import convertTime from '../convert_time.js'
 
 const update = function (onFail, onSuccess) {
   let ns = window.game_objs

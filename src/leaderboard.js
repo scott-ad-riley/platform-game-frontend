@@ -2,7 +2,7 @@ import React, { render } from 'react'
 import { Provider } from 'preact-redux'
 import { createStore } from 'redux'
 
-import config from './firebase_config.js'
+import config from './leaderboard/firebase_config.js'
 import LeaderboardList from './leaderboard/components/leaderboard_list.js'
 import reducer from './leaderboard/reducer.js'
 import newRun from './leaderboard/new_run.js'

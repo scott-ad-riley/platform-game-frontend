@@ -1,6 +1,6 @@
-import Game from './states/game'
-import Fail from './states/fail'
-import Success from './states/success'
+import Game from './game/states/game'
+import Fail from './game/states/fail'
+import Success from './game/states/success'
 
 window.onload = function () {
   // namespace all of our game elements so we can separate them apart in methods

@@ -1,5 +1,5 @@
 import preload from '../preload_post_game_screen.js'
-import convertTime from '../convert_time.js'
+import convertTime from '../../convert_time.js'
 
 const Success = function () {
   this.textStyle = {
