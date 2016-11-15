@@ -27,7 +27,7 @@ const update = function (onFail, onSuccess) {
     ns.player.body.velocity.y = -570
   }
 
-  ns.timerText.setText(convertTime(ns.timer.seconds))
+  ns.timerText.setText(" " + convertTime(ns.timer.seconds) + " ")
   ns.game_time = ns.timer.seconds
   this.game.physics.arcade.collide(ns.stars, ns.ground)
   this.game.physics.arcade.overlap(ns.player, ns.stars, onSuccess, null, this.game)

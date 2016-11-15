@@ -60,12 +60,14 @@ const create = function (onRestart) {
   ns.timer.start();
 
 
-  //  Create our Timer
-  // ns.timer = this.game.time.create();
-  this.game.add.button(314, 400, 'base', onRestart)
+  //  Create the restart button
+  const restartButton = this.game.add.button(800 - 60, 15, 'restart', onRestart)
+  restartButton.scale.setTo(0.05, 0.05);
+  restartButton.fixedToCamera = true
 
   // ns.timer.start();
-  ns.timerText = this.game.add.text(0, 0, ns.timer.seconds, timerTextStyles)
+  ns.timerText = this.game.add.text(0, 0, " " + ns.timer.seconds + " ", timerTextStyles)
+  ns.timerText.setShadow(0, 0, 'rgba(0,0,0,0.8)', 20)
   ns.timerText.setTextBounds(0, 50, 200, 50)
   ns.timerText.fixedToCamera = true
 }
