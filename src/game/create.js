@@ -10,10 +10,13 @@ const create = function (onRestart) {
   ns.bh = 64 // block_height
   ns.floor_level = 70
 
-  this.world.resize(800*3, 600)
+  this.world.resize(800 * 3, 600)
   this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
   ns.background = this.game.add.tileSprite(0, 0, this.world.width, this.world.height, 'background')
+  ns.background.scale.setTo(1/3, 1)
+  ns.background.tileScale.y = 0.47
+
   ns.background.fixedToCamera = true
 
   ns.hazards = this.game.add.physicsGroup()
@@ -48,7 +51,7 @@ const create = function (onRestart) {
   ns.stars.enableBody = true
 
   //  Create a star inside of the 'stars' group
-  let star = ns.stars.create(ns.distance, 0, 'diamond')
+  const star = ns.stars.create(ns.distance, 0, 'diamond')
 
   //  Let gravity do its thing
   star.body.gravity.y = 10
