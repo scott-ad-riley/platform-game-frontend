@@ -3,7 +3,7 @@ import create from '../create'
 import update from '../update'
 
 const Game = function(game){
-  // console.log("%cStarting my awesome game", "color:white; background:red");
+
 };
 
 Game.prototype = {
@@ -11,10 +11,13 @@ Game.prototype = {
     preload.call(this)
   },
   create: function(){
-    create.call(this)
+    create.call(this, ::this.onRestart)
   },
   update: function () {
-    update.call(this, this.onFail, this.onSuccess)
+    update.call(this, ::this.onFail, ::this.onSuccess)
+  },
+  onRestart: function () {
+    this.state.start('Game')
   },
   onFail: function () {
     this.state.start('Fail')

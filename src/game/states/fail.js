@@ -1,5 +1,3 @@
-import preload from '../preload_post_game_screen.js'
-
 const Fail = function () {
   this.textStyle = {
     fontSize: '32px',
@@ -22,9 +20,6 @@ Fail.prototype = {
     let button = this.game.add.button(314, 400, 'base', ::this.actionOnClick)
     let buttonText = this.game.add.text(0, 0, 'Restart', this.buttonTextStyle)
     buttonText.setTextBounds(0, 245, 800, 400)
-  },
-  preload: function () {
-    preload.call(this)
   },
   restart: function () {
 

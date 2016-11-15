@@ -1,4 +1,3 @@
-import preload from '../preload_post_game_screen.js'
 import convertTime from '../../convert_time.js'
 
 const Success = function () {
@@ -44,7 +43,6 @@ Success.prototype = {
   },
   preload: function () {
     this.game.add.plugin(Fabrique.Plugins.InputField)
-    preload.call(this)
   },
   viewLeaderboard: function () {
     window.location.href = window.location.href + "leaderboard"

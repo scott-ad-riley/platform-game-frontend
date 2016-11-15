@@ -6,8 +6,8 @@ const update = function (onFail, onSuccess) {
   ns.background.tilePosition.x = -(this.camera.x * 0.7);
 
   let hitGround = this.game.physics.arcade.collide(ns.player, ns.ground)
-  let hazardContact = this.game.physics.arcade.overlap(ns.player, ns.hazards, onFail.bind(this))
-  // let successContact = this.game.physics.arcade.overlap(ns.player, ns.finishLine, onSuccess.bind(this))
+  let hazardContact = this.game.physics.arcade.overlap(ns.player, ns.hazards, onFail)
+  // let successContact = this.game.physics.arcade.overlap(ns.player, ns.finishLine, onSuccess)
 
   let cursors = this.game.input.keyboard.createCursorKeys()
 
@@ -30,7 +30,7 @@ const update = function (onFail, onSuccess) {
   ns.timerText.setText(convertTime(ns.timer.seconds))
   ns.game_time = ns.timer.seconds
   this.game.physics.arcade.collide(ns.stars, ns.ground)
-  this.game.physics.arcade.overlap(ns.player, ns.stars, onSuccess.bind(this), null, this.game)
+  this.game.physics.arcade.overlap(ns.player, ns.stars, onSuccess, null, this.game)
 }
 
 export default update
