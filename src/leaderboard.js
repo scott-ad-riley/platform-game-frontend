@@ -2,20 +2,19 @@ import React, { render } from 'react'
 import { Provider } from 'preact-redux'
 import { createStore } from 'redux'
 
-import config from './leaderboard/firebase_config.js'
 import LeaderboardList from './leaderboard/components/leaderboard_list.js'
 import reducer from './leaderboard/reducer.js'
 import newRun from './leaderboard/new_run.js'
 import removeRun from './leaderboard/remove_run.js'
+import FirebaseConnection from './firebase_connection.js'
 
 window.onload = function () {
-  firebase.initializeApp(config)
-  const timeRef = firebase.database().ref('times/')
+  const firebase = new FirebaseConnection()
 
-  timeRef.on('child_added', (data) => {
+  firebase.onNewRun((data) => {
     store.dispatch(newRun(data))
   })
-  timeRef.on('child_removed', (data) => {
+  firebase.onRemoveRun((data) => {
     store.dispatch(removeRun(data.key))
   })
 
@@ -27,11 +26,10 @@ window.onload = function () {
     </Provider>
   , document.body)
 
-  window.writeTimeToLeaderboard = function (name, time) {
-    // just here as an example - will move into the game
-    timeRef.push().set({
-      name: name,
-      time: time
-    })
+
+  window.populateLeaderboard = function () {
+    for (let i = 0; i < 100; i++) {
+      firebase.publishRun('gary' + Math.round(Math.random() * 10), Math.random())
+    }
   }
 }
