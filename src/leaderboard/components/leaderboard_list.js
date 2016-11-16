@@ -3,9 +3,19 @@ import { connect } from 'preact-redux'
 
 import LeaderboardRow from './leaderboard_row.js'
 
+const limit = function (array) {
+  return array.slice(0, 99)
+}
+
+const compareRuns = function (a, b) {
+  if (a.time < b.time) return -1;
+  if (a.time > b.time) return 1;
+  return 0;
+}
+
 const mapStateToProps = (state) => (
   {
-    runs: state.runs
+    runs: limit(state.runs.sort(compareRuns))
   }
 )
 
