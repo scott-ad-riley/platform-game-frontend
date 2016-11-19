@@ -1,25 +1,20 @@
-const Fail = function () {
-  this.textStyle = {
-    fontSize: '32px',
-    fill: '#fff',
-    boundsAlignH: 'center',
-    boundsAlignV: 'middle'
-  }
-  this.buttonTextStyle = {
-    fontSize: '24px',
-    fill: '#aaa',
-    boundsAlignH: 'center',
-    boundsAlignV: 'middle'
-  }
-}
+import preload from '../preload'
+
+import { QUOTE } from '../styles/text.js'
+import Core from '../generators/core'
+const { Button, Quote, Container, Background } = Core
+
+const Fail = function () {}
 
 Fail.prototype = {
+  preload: function () {
+    preload.call(this)
+  },
   create: function () {
-    let text = this.game.add.text(0, 0, 'Better luck next time!', this.textStyle)
-    text.setTextBounds(0, 0, 800, 400)
-    let button = this.game.add.button(314, 400, 'base', ::this.actionOnClick)
-    let buttonText = this.game.add.text(0, 0, 'Restart', this.buttonTextStyle)
-    buttonText.setTextBounds(0, 245, 800, 400)
+    Background.call(this)
+    Container.call(this, {})
+    Quote.call(this, {}, 'Better luck next time!')
+    Button.call(this, {x: 300, y: 400}, 'RESTART', ::this.actionOnClick)
   },
   restart: function () {
 

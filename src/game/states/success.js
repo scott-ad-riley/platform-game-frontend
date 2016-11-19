@@ -1,58 +1,39 @@
+import preload from '../preload'
+
 import convertTime from '../../convert_time.js'
+import Core from '../generators/core'
+const { Button, Quote, Container, Background, NameInput } = Core
 
 const Success = function () {
-  this.textStyle = {
-    fontSize: '32px',
-    fill: '#fff',
-    boundsAlignH: 'center',
-    boundsAlignV: 'middle'
-  }
-  this.buttonTextStyle = {
-    fontSize: '24px',
-    fill: '#aaa',
-    boundsAlignH: 'center',
-    boundsAlignV: 'middle'
-  }
-  this.textInputOpts = {
-    font: '12px Arial',
-    fill: '#212121',
-    fontWeight: 'bold',
-    width: 150,
-    padding: 8,
-    borderWidth: 1,
-    borderColor: '#000',
-    borderRadius: 3,
-    placeHolder: 'Enter Name'
-  }
-  this.inputValue = ""
 }
 
 Success.prototype = {
   create: function () {
-    let time = this.game.add.text(0, 0, 'Time: ' + convertTime(window.game_objs.game_time), this.textStyle)
-    let text = this.game.add.text(0, 0, 'Congrats!', this.textStyle)
-    text.setTextBounds(0, 0, 800, 400)
-    this.game.add.button(314, 400, 'base', ::this.restart)
-    this.game.add.button(400, 270, 'base', ::this.submitScore)
-    let submitText = this.game.add.text(0, 0, 'Submit', this.buttonTextStyle)
-    let restartText = this.game.add.text(0, 0, 'Restart', this.buttonTextStyle)
-    submitText.setTextBounds(0, 120, 990, 400)
-    restartText.setTextBounds(0, 245, 800, 400)
-    let inputField = this.game.add.inputField(225, 300, this.textInputOpts)
-    inputField.domElement.element.onkeyup = (e) => this.inputValue = e.target.value
+    this.inputValue = ""
+    this.timer = window.game_objs.game_time || 0
+    Background.call(this)
+    Container.call(this)
+
+    Quote.call(this, {}, 'Congratulations!', convertTime(this.timer))
+    Button.call(this, {x: 300, y: 400}, 'RESTART', ::this.restart)
+    Button.call(this, {x: 430, y: 270}, 'SUBMIT', ::this.submitScore)
+
+    NameInput.call(this, {x: 160, y: 290}, ::this.updateName)
   },
   preload: function () {
     this.game.add.plugin(Fabrique.Plugins.InputField)
-  },
-  viewLeaderboard: function () {
-    window.location.href = window.location.href + "leaderboard"
+    preload.call(this)
   },
   restart: function () {
     this.state.start('Game')
   },
+  updateName: function (value) {
+    this.inputValue = value
+  },
   submitScore: function () {
     let ns = window.game_objs
     ns.sendTime(this.inputValue, ns.game_time)
+    this.state.start('Submitted')
   }
 }
 

@@ -1,6 +1,8 @@
 import ZoneGenerators from './generators/zones/index.js'
+import Core from './generators/core/'
+const { Button } = Core
 
-import timerTextStyles from './styles/timer_text.js'
+import { TIMER } from './styles/text.js'
 
 const create = function (onRestart) {
   let ns = window.game_objs
@@ -66,7 +68,7 @@ const create = function (onRestart) {
   restartButton.fixedToCamera = true
 
   // ns.timer.start();
-  ns.timerText = this.game.add.text(0, 0, " " + ns.timer.seconds + " ", timerTextStyles)
+  ns.timerText = this.game.add.text(0, 0, " " + ns.timer.seconds + " ", TIMER)
   ns.timerText.setShadow(0, 0, 'rgba(0,0,0,0.8)', 20)
   ns.timerText.setTextBounds(0, 50, 200, 50)
   ns.timerText.fixedToCamera = true

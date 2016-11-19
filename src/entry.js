@@ -1,6 +1,7 @@
 import Game from './game/states/game'
 import Fail from './game/states/fail'
 import Success from './game/states/success'
+import Submitted from './game/states/submitted'
 
 import FirebaseConnection from './firebase_connection.js'
 
@@ -11,7 +12,8 @@ window.onload = function () {
   game.state.add('Game', Game)
   game.state.add('Fail', Fail)
   game.state.add('Success', Success)
-  game.state.start('Game')
+  game.state.add('Submitted', Submitted)
+  game.state.start('Success')
 
   const firebase = new FirebaseConnection()
   window.game_objs.sendTime = ::firebase.publishRun
