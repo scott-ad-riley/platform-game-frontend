@@ -1,5 +1,3 @@
-Fairly empty for now...
-
 ### Setup
 
 * Clone/Download
@@ -11,3 +9,7 @@ Fairly empty for now...
 * How to filter items
 * Firebase security?
 * Latest runs table alongside top runs?
+* Rubot's Adventure
+* Quotes from instructors on success/failure
+  * run them past killian/gillian
+* use instructor pictures as hazards to dodge
