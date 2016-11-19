@@ -14,5 +14,5 @@ window.onload = function () {
   game.state.start('Game')
 
   const firebase = new FirebaseConnection()
-  window.game_objs.sendTime = firebase.dispatchRun
+  window.game_objs.sendTime = ::firebase.publishRun
 }

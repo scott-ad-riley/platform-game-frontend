@@ -51,7 +51,8 @@ Success.prototype = {
     this.state.start('Game')
   },
   submitScore: function () {
-    console.log(this.inputValue)
+    let ns = window.game_objs
+    ns.sendTime(this.inputValue, ns.game_time)
   }
 }
 
