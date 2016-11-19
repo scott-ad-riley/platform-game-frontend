@@ -32,7 +32,7 @@ const create = function (onRestart) {
 
 
  // The player and its settings
-  ns.player = this.game.add.sprite(32, 32, 'dude')
+  ns.player = this.game.add.sprite(32, this.game.world.height - ns.floor_level - 64, 'dude')
 
   //  We need to enable physics on the player
   this.game.physics.arcade.enable(ns.player)
@@ -68,7 +68,7 @@ const create = function (onRestart) {
   restartButton.fixedToCamera = true
 
   // ns.timer.start();
-  ns.timerText = this.game.add.text(0, 0, " " + ns.timer.seconds + " ", TIMER)
+  ns.timerText = this.game.add.text(0, 0, " 0.0 ", TIMER)
   ns.timerText.setShadow(0, 0, 'rgba(0,0,0,0.8)', 20)
   ns.timerText.setTextBounds(0, 50, 200, 50)
   ns.timerText.fixedToCamera = true

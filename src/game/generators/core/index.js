@@ -5,6 +5,7 @@ import Quote from './quote.js'
 import Container from './container.js'
 import Background from './background.js'
 import NameInput from './name_input.js'
+import Instruction from './instruction.js'
 
 export default {
   Hazard,
@@ -13,5 +14,6 @@ export default {
   Quote,
   Container,
   Background,
-  NameInput
+  NameInput,
+  Instruction
 }

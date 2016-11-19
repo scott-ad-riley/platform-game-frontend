@@ -32,3 +32,13 @@ export const NAME_INPUT = {
   borderRadius: 0,
   placeHolder: 'Enter Name'
 }
+
+export const INSTRUCTION = {
+  fontSize: '40px',
+  fill: '#fff',
+  font: 'VT323',
+  boundsAlignH: 'center',
+  boundsAlignV: 'middle',
+  _width: 500,
+  _height: 50
+}

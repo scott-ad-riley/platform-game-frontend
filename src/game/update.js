@@ -3,11 +3,8 @@ import convertTime from '../convert_time.js'
 const update = function (onFail, onSuccess) {
   let ns = window.game_objs
 
-  ns.background.tilePosition.x = -(this.camera.x * 0.7);
-
-  let hitGround = this.game.physics.arcade.collide(ns.player, ns.ground)
-  let hazardContact = this.game.physics.arcade.overlap(ns.player, ns.hazards, onFail)
   // let successContact = this.game.physics.arcade.overlap(ns.player, ns.finishLine, onSuccess)
+  let hazardContact = this.game.physics.arcade.overlap(ns.player, ns.hazards, onFail)
 
   let cursors = this.game.input.keyboard.createCursorKeys()
 
@@ -23,7 +20,7 @@ const update = function (onFail, onSuccess) {
     ns.player.animations.play('static')
   }
 
-  if (cursors.up.isDown && ns.player.body.touching.down && hitGround) {
+  if (cursors.up.isDown && ns.player.body.touching.down && ns.hitGround) {
     ns.player.body.velocity.y = -570
   }
 

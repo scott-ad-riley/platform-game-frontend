@@ -25,7 +25,7 @@ Success.prototype = {
     preload.call(this)
   },
   restart: function () {
-    this.state.start('Game')
+    this.state.start('GameStart')
   },
   updateName: function (value) {
     this.inputValue = value

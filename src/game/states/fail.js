@@ -14,16 +14,10 @@ Fail.prototype = {
     Background.call(this)
     Container.call(this, {})
     Quote.call(this, {}, 'Better luck next time!')
-    Button.call(this, {x: 300, y: 400}, 'RESTART', ::this.actionOnClick)
+    Button.call(this, {x: 300, y: 400}, 'RESTART', ::this.restart)
   },
   restart: function () {
-
-  },
-  viewLeaderboard: function () {
-
-  },
-  actionOnClick: function () {
-    this.state.start('Game')
+    this.state.start('GameStart')
   }
 }
 
