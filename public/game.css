@@ -12,3 +12,10 @@ body {
 .game-box canvas {
   margin: 0 auto;
 }
+
+.fontLoader {
+  font-family: 'VT323';
+  position: absolute;
+  left: -1000px;
+  visibility: hidden;
+}
