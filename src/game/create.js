@@ -23,6 +23,7 @@ const create = function (onRestart) {
 
   ns.hazards = this.game.add.physicsGroup()
   ns.ground = this.game.add.physicsGroup()
+  ns.boostCrates = this.game.add.physicsGroup()
   ns.rubies = this.game.add.group()
   ns.rubies.enableBody = true  
   ns.ruby_total = ns.current_rubies = 0;

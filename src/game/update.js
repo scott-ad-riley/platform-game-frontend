@@ -20,8 +20,14 @@ const update = function (onFail, onSuccess) {
     ns.player.animations.play('static')
   }
 
-  if (cursors.up.isDown && ns.player.body.touching.down && ns.hitGround) {
-    ns.player.body.velocity.y = -570
+  ns.boostEnabled = false || ns.hitBoosted
+
+  if (cursors.up.isDown && ns.player.body.touching.down && (ns.hitGround || ns.hitBoosted)) {
+    if (ns.boostEnabled) {
+      ns.player.body.velocity.y = -800
+    } else {
+      ns.player.body.velocity.y = -570
+    }
   }
 
   ns.timerText.setText(" " + convertTime(ns.timer.seconds) + " ")

@@ -1,6 +1,6 @@
 import Core from '../core/'
 
-const Crate = function (dimensions) {
+const BoostCrate = function (dimensions) {
   let ns = window.game_objs
   let scale = 0.5
 
@@ -9,11 +9,11 @@ const Crate = function (dimensions) {
       x: dimensions.x, y: dimensions.y,
       width: 96 * scale, height: 96 * scale
     },
-    'crate.array'
+    'crate.boost'
   )
   crate.tileScale.x = crate.tileScale.y = scale
-
+  ns.boostCrates.add(crate);
   return 0
 }
 
-export default Crate
+export default BoostCrate

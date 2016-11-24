@@ -12,10 +12,10 @@
 
 ### Shit to do (most important at the top)
 
-* Make course longer (absolute minimum 30 secs for run)
 * use instructor pictures as hazards to dodge
-* convert platforms to crates
-* Add instructor quotes
 * Style leaderboard page properly
+* Fix alignment of counters/timer
+
+* Add instructor quotes
 * Rubot's Adventure title + styling
 * Add ruby collection to the endgame fail screen

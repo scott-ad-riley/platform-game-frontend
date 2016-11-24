@@ -19,29 +19,34 @@ const PlatformClimb = function (start, config, sprites) {
       width: ns.bw, height: ns.bh * 1
     }, sprites.hazard_top)
 
-  CoreGenerators.Floor.call(this,
+  let platforms = []
+  platforms.push(CoreGenerators.Floor.call(this,
     {
       x: start, y: this.game.world.height - config.gap - ns.bh,
       width: width, height: height
-    }, sprites.platform)
+    }, sprites.platform))
 
-  CoreGenerators.Floor.call(this,
+  platforms.push(CoreGenerators.Floor.call(this,
     {
       x: start + ns.bw * 2, y: this.game.world.height - config.gap - ns.bh * 3,
       width: width, height: height
-    }, sprites.platform)
+    }, sprites.platform))
 
-  CoreGenerators.Floor.call(this,
+  platforms.push(CoreGenerators.Floor.call(this,
     {
       x: start + width, y: this.game.world.height - config.gap - ns.bh * 5,
       width: width, height: height
-    }, sprites.platform)
+    }, sprites.platform))
 
-  CoreGenerators.Floor.call(this,
+  platforms.push(CoreGenerators.Floor.call(this,
     {
       x: start + total_width + width * 3, y: this.game.world.height - config.gap - ns.bh * 4,
       width: width, height: height
-    }, sprites.platform)
+    }, sprites.platform))
+
+  platforms.forEach((platform) => {
+    platform.tileScale.x = platform.tileScale.y = 0.5
+  })
 
   GroupGenerators.GroundFloor.call(this,
     {

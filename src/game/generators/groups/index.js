@@ -5,6 +5,7 @@ import FloorHazardColumn from './floor_hazard_column.js'
 import GroundHazard from './ground_hazard.js'
 import Crate from './crate.js'
 import RoofHazardColumn from './roof_hazard_column.js'
+import BoostCrate from './boost_crate.js'
 import Ruby from './ruby.js'
 
 export default {
@@ -15,5 +16,6 @@ export default {
   GroundHazard,
   Crate,
   RoofHazardColumn,
-  Ruby
+  Ruby,
+  BoostCrate
 }

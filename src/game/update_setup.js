@@ -7,6 +7,7 @@ const updateSetup = function () {
   ns.background.tilePosition.x = -(this.camera.x * 0.7);
 
   ns.hitGround = this.game.physics.arcade.collide(ns.player, ns.ground)
+  ns.hitBoosted = this.game.physics.arcade.collide(ns.player, ns.boostCrates)
 
 }
 
