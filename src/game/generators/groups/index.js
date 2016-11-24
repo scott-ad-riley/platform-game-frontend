@@ -7,6 +7,7 @@ import Crate from './crate.js'
 import RoofHazardColumn from './roof_hazard_column.js'
 import BoostCrate from './boost_crate.js'
 import Ruby from './ruby.js'
+import Tony from './tony.js'
 
 export default {
   PitWithPlatform,
@@ -17,5 +18,6 @@ export default {
   Crate,
   RoofHazardColumn,
   Ruby,
-  BoostCrate
+  BoostCrate,
+  Tony
 }

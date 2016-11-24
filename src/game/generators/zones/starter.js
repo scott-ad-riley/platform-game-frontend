@@ -14,15 +14,20 @@ const Starter = function () {
       hazard: 'one.spikes',
       underground: 'one.underground',
       platform: 'one.surface'
-    })
+    }
+  )
 
   GroupGenerators.Ruby.call(this,
     { x: distance - ns.bw * 2.75, y: this.game.world.height - ns.bh * 4 } 
   )
 
+  GroupGenerators.Tony.call(this,
+    { x: distance, y: this.game.world.height - ns.floor_level - ns.bh }
+  )
+
   distance += GroupGenerators.GroundFloor.call(this,
-      { start: distance, length: 300 }, 'one'
-    )
+    { start: distance, length: 300 }, 'one'
+  )
 
 
   distance += GroupGenerators.PlatformClimb.call(this,
@@ -42,8 +47,12 @@ const Starter = function () {
     }
   )
 
+  GroupGenerators.Tony.call(this,
+    { x: distance - ns.bw * 3.5, y: ns.bh} 
+  )
+
   GroupGenerators.Ruby.call(this,
-    { x: distance - ns.bw * 3.3, y: 0 } 
+    { x: distance - ns.bw * 3.5, y: 0 } 
   )
 
 
@@ -127,6 +136,10 @@ const Starter = function () {
   )
 
   distance += GroupGenerators.GroundHazard.call(this, { start: distance, length: ns.bw * 3 })
+
+  GroupGenerators.Tony.call(this,
+    { x: distance - ns.bw * 2, y: this.game.world.height - ns.bh * 3 }
+  )
 
   GroupGenerators.Crate.call(this,
     { x: distance - ns.bw * 1.5, y: this.game.world.height - ns.bh * 2 }

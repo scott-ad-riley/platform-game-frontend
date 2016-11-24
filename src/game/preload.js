@@ -1,5 +1,6 @@
 const preload = function () {
   this.game.load.image('base', '/img/white_button_box.png')
+  this.game.load.image('tony', '/img/tony.png')
   this.game.load.image('crate.array', '/img/array_crate.png')
   this.game.load.image('crate.boost', '/img/boost_crate.png')
   this.game.load.image('button.standard', '/img/yellow_button_box.png')
