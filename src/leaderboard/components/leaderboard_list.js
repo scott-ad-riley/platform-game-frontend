@@ -4,7 +4,7 @@ import { connect } from 'preact-redux'
 import LeaderboardRow from './leaderboard_row.js'
 
 const limit = function (array) {
-  return array.slice(0, 99)
+  return array.slice(0, 20)
 }
 
 const compareRuns = function (a, b) {
@@ -30,9 +30,12 @@ class LeaderboardList extends Component {
 
   render() {
     return (
-        <ul>
-          {this.props.runs.map((run) => this.renderLeaderBoardRow(run))}
-        </ul>
+        <div>
+          <h1>LEADERBOARD</h1>
+          <ul>
+            {this.props.runs.map((run) => this.renderLeaderBoardRow(run))}
+          </ul>
+        </div>
       )
   }
 }

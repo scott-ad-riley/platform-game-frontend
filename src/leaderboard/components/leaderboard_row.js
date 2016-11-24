@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 
 const LeaderboardRow = ({ name, time }) => (
-  <li>Name: {name} Time: {time}</li>
+  <li>
+    <span>Name: {name}</span>
+    <span>Time: {time}</span>
+  </li>
 )
 
 export default LeaderboardRow
