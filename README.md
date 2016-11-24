@@ -13,12 +13,9 @@
 ### Shit to do (most important at the top)
 
 * Make course longer (absolute minimum 30 secs for run)
-* Add ruby collection in
-* Make ruby collection the win condition
-* Add ruby collection to the endgame fail screen
 * use instructor pictures as hazards to dodge
-* Add instructor quotes
-* Style leaderboard page
-* Fix restart button in corner
-* Rubot's Adventure title + styling
 * convert platforms to crates
+* Add instructor quotes
+* Style leaderboard page properly
+* Rubot's Adventure title + styling
+* Add ruby collection to the endgame fail screen
