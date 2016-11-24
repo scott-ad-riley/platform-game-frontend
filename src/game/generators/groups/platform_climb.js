@@ -55,7 +55,6 @@ const PlatformClimb = function (start, config, sprites) {
     },
     'one')
 
-  console.log(total_width)
   return (total_width - ns.bw) * 2 + ns.bw
 }
 
