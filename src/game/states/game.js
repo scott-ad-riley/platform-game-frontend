@@ -24,8 +24,14 @@ Game.prototype = {
   onFail: function () {
     this.state.start('Fail')
   },
-  onSuccess: function () {
-    this.state.start('Success')
+  onSuccess: function (player, ruby) {
+    let ns = window.game_objs;
+    ruby.kill()
+    if (ns.ruby_total - 1 === ns.current_rubies) {
+      this.state.start('Success')
+    } else {
+      ns.current_rubies++;
+    }
   }
 }
 

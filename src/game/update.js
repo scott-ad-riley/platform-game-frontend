@@ -25,9 +25,10 @@ const update = function (onFail, onSuccess) {
   }
 
   ns.timerText.setText(" " + convertTime(ns.timer.seconds) + " ")
+  ns.rubyCounter.setText(ns.current_rubies + '/' + ns.ruby_total)
   ns.game_time = ns.timer.seconds
-  this.game.physics.arcade.collide(ns.stars, ns.ground)
-  this.game.physics.arcade.overlap(ns.player, ns.stars, onSuccess, null, this.game)
+  // this.game.physics.arcade.collide(ns.stars, ns.ground)
+  this.game.physics.arcade.overlap(ns.player, ns.rubies, onSuccess, null, this.game)
 }
 
 export default update

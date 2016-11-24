@@ -55,8 +55,8 @@ const PlatformClimb = function (start, config, sprites) {
     },
     'one')
 
-
-  return total_width // and also some height value we that we left it at
+  console.log(total_width)
+  return (total_width - ns.bw) * 2 + ns.bw
 }
 
 export default PlatformClimb

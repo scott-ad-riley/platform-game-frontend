@@ -12,7 +12,7 @@ const create = function (onRestart) {
   ns.bh = 64 // block_height
   ns.floor_level = 70
 
-  this.world.resize(800 * 3, 600)
+  this.world.resize(800 * 6, 600)
   this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
   ns.background = this.game.add.tileSprite(0, 0, this.world.width, this.world.height, 'background')
@@ -23,6 +23,9 @@ const create = function (onRestart) {
 
   ns.hazards = this.game.add.physicsGroup()
   ns.ground = this.game.add.physicsGroup()
+  ns.rubies = this.game.add.group()
+  ns.rubies.enableBody = true  
+  ns.ruby_total = ns.current_rubies = 0;
 
   ZoneGenerators.OffScreenWall.call(this)
 
@@ -47,31 +50,27 @@ const create = function (onRestart) {
 
   this.camera.follow(ns.player)
 
-
-  ns.stars = this.game.add.group()
-
-  ns.stars.enableBody = true
-
-  //  Create a star inside of the 'stars' group
-  const star = ns.stars.create(ns.distance, 0, 'diamond')
-
-  //  Let gravity do its thing
-  star.body.gravity.y = 10
   ns.timer = this.game.time.create();
   // Add as many events as you like here, they are popped off the stack once the time is hit
   ns.timer.start();
 
-
   //  Create the restart button
-  const restartButton = this.game.add.button(800 - 60, 15, 'restart', onRestart)
-  restartButton.scale.setTo(0.05, 0.05);
-  restartButton.fixedToCamera = true
+  // const restartButton = this.game.add.button(800 - 60, 15, 'restart', onRestart)
+  // restartButton.scale.setTo(0.05, 0.05);
+  // restartButton.fixedToCamera = true
 
   // ns.timer.start();
   ns.timerText = this.game.add.text(0, 0, " 0.0 ", TIMER)
   ns.timerText.setShadow(0, 0, 'rgba(0,0,0,0.8)', 20)
   ns.timerText.setTextBounds(0, 50, 200, 50)
   ns.timerText.fixedToCamera = true
+
+  ns.rubyCounterSprite = this.game.add.sprite(800 - 200, 45, 'ruby')
+  ns.rubyCounterSprite.scale.x = ns.rubyCounterSprite.scale.y = 0.4
+  ns.rubyCounterSprite.fixedToCamera = true
+  ns.rubyCounter = this.game.add.text(800 - 150, 25, '0/' + ns.ruby_total, TIMER)
+  ns.rubyCounter.setShadow(0, 0, 'rgba(0,0,0,0.8)', 20)
+  ns.rubyCounter.fixedToCamera = true
 }
 
 export default create
