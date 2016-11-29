@@ -1,8 +1,12 @@
 ### Setup
 
-* Clone/Download
-* `npm i`
-* `node server.js` and `webpack -w`
+* Clone/Download (green button)
+* You will need nodejs from here: (https://nodejs.org/en/download/)
+  * anything above 4 is probably fine
+* then run these from the folder you cloned:
+  * `npm i`
+  * `npm i webpack` (It's not a dependancy)
+  * `node server.js` and `webpack -w`
 
 ### Concerns
 
@@ -10,12 +14,11 @@
 * Firebase security?
 * Latest runs table alongside top runs?
 
-### Shit to do (most important at the top)
+### TODO (most important at the top)
 
-* use instructor pictures as hazards to dodge
-* Style leaderboard page properly
+* ~~use instructor pictures as hazards to dodge~~
+* ~~Style leaderboard page properly~~
 * Fix alignment of counters/timer
-
 * Add instructor quotes
 * Rubot's Adventure title + styling
-* Add ruby collection to the endgame fail screen
+* Add ruby collection count to the endgame fail screen
