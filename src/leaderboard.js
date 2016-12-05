@@ -10,6 +10,7 @@ import FirebaseConnection from './firebase_connection.js'
 
 window.onload = function () {
   const firebase = new FirebaseConnection()
+  const store = createStore(reducer, {runs: []})
 
   firebase.onNewRun((data) => {
     store.dispatch(newRun(data))
@@ -18,18 +19,10 @@ window.onload = function () {
     store.dispatch(removeRun(data.key))
   })
 
-  const store = createStore(reducer, {runs: []})
 
   render(
     <Provider store={store}>
       <LeaderboardList />
     </Provider>
   , document.body)
-
-
-  window.populateLeaderboard = function () {
-    for (let i = 0; i < 100; i++) {
-      firebase.publishRun('gary' + Math.round(Math.random() * 10), Math.random())
-    }
-  }
 }

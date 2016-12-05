@@ -1,10 +1,10 @@
-import Core from '../core/'
+import { Floor } from '../core/'
 
 const GroundFloor = function (dimensions, zone) {
   let ns = window.game_objs
 
   // floor
-  Core.Floor.call(this,
+  Floor.call(this,
       {
         x: dimensions.start, y: this.game.world.height - ns.floor_level,
         width: dimensions.length, height: ns.bh
@@ -12,7 +12,7 @@ const GroundFloor = function (dimensions, zone) {
       zone + '.surface'
     )
   // underground
-  Core.Floor.call(this,
+  Floor.call(this,
       {
         x: dimensions.start, y: this.game.world.height - ns.floor_level + ns.bh,
         width: dimensions.length, height: ns.bh

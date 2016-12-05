@@ -1,8 +1,7 @@
 import preload from '../preload'
 
 import convertTime from '../../convert_time.js'
-import Core from '../generators/core'
-const { Button, Quote, Container, Background, NameInput } = Core
+import { Button, Quote, Container, Background, NameInput } from '../generators/core'
 
 const Success = function () {
 }

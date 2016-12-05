@@ -8,8 +8,9 @@ import RoofHazardColumn from './roof_hazard_column.js'
 import BoostCrate from './boost_crate.js'
 import Ruby from './ruby.js'
 import Tony from './tony.js'
+import Instructions from './instructions.js'
 
-export default {
+export {
   PitWithPlatform,
   GroundFloor,
   PlatformClimb,
@@ -19,5 +20,6 @@ export default {
   RoofHazardColumn,
   Ruby,
   BoostCrate,
-  Tony
+  Tony,
+  Instructions
 }

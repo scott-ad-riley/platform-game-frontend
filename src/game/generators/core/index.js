@@ -8,7 +8,7 @@ import NameInput from './name_input.js'
 import Instruction from './instruction.js'
 import Ruby from './ruby.js'
 
-export default {
+export {
   Hazard,
   Floor,
   Button,

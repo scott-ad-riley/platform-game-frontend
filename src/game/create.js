@@ -1,11 +1,11 @@
-import ZoneGenerators from './generators/zones/index.js'
-import Core from './generators/core/'
-const { Button } = Core
+import { Main, OffScreenWall } from './generators/zones/'
+import { Button } from './generators/core/'
 
 import { TIMER } from './styles/text.js'
 
 const create = function (onRestart) {
   let ns = window.game_objs
+  // defaults
   ns.sw = 1024 // sprite width
   ns.sh = 1024 // sprite height
   ns.bw = 64 // block_width
@@ -25,26 +25,21 @@ const create = function (onRestart) {
   ns.ground = this.game.add.physicsGroup()
   ns.boostCrates = this.game.add.physicsGroup()
   ns.rubies = this.game.add.group()
-  ns.rubies.enableBody = true  
+  ns.rubies.enableBody = true
   ns.ruby_total = ns.current_rubies = 0;
 
-  ZoneGenerators.OffScreenWall.call(this)
+  OffScreenWall.call(this)
 
   ns.distance = 0
 
-  ns.distance += ZoneGenerators.Starter.call(this);
+  ns.distance += Main.call(this);
 
 
  // The player and its settings
   ns.player = this.game.add.sprite(32, this.game.world.height - ns.floor_level - 64, 'dude')
-
-  //  We need to enable physics on the player
   this.game.physics.arcade.enable(ns.player)
-
-  //  Player physics properties. Give the little guy a slight bounce.
   ns.player.body.gravity.y = 1200
 
-  //  Our two animations, walking left and right.
   ns.player.animations.add('static', [0, 1], 2, true)
   ns.player.animations.add('right', [2, 3, 4, 5, 6, 7, 8], 10, true)
   ns.player.animations.add('left', [9, 10, 11, 12, 13, 14, 15], 10, true)
@@ -52,15 +47,8 @@ const create = function (onRestart) {
   this.camera.follow(ns.player)
 
   ns.timer = this.game.time.create();
-  // Add as many events as you like here, they are popped off the stack once the time is hit
   ns.timer.start();
 
-  //  Create the restart button
-  // const restartButton = this.game.add.button(800 - 60, 15, 'restart', onRestart)
-  // restartButton.scale.setTo(0.05, 0.05);
-  // restartButton.fixedToCamera = true
-
-  // ns.timer.start();
   ns.timerText = this.game.add.text(0, 0, " 0.0 ", TIMER)
   ns.timerText.setShadow(0, 0, 'rgba(0,0,0,0.8)', 20)
   ns.timerText.setTextBounds(0, 50, 200, 50)

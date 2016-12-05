@@ -33,7 +33,7 @@ class LeaderboardList extends Component {
         <div>
           <h1>LEADERBOARD</h1>
           <ul>
-            {this.props.runs.map((run) => this.renderLeaderBoardRow(run))}
+            {this.props.runs.map( run => this.renderLeaderBoardRow(run))}
           </ul>
         </div>
       )

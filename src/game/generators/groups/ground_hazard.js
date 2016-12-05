@@ -1,10 +1,10 @@
-import Core from '../core/'
+import { Hazard, Floor } from '../core/'
 
 const GroundHazard = function (dimensions) {
   let ns = window.game_objs
 
   // floor
-  Core.Hazard.call(this,
+  Hazard.call(this,
       {
         x: dimensions.start, y: this.game.world.height - ns.floor_level,
         width: dimensions.length, height: ns.bh
@@ -12,7 +12,7 @@ const GroundHazard = function (dimensions) {
       'one.spikes'
     )
 
-  Core.Floor.call(this,
+  Floor.call(this,
     {
       x: dimensions.start, y: this.game.world.height - ns.floor_level + ns.bh,
       width: dimensions.length, height: ns.bh

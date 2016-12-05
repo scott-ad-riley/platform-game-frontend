@@ -2,11 +2,9 @@ import preload from '../preload'
 import create from '../create'
 import update from '../update'
 import updateSetup from '../update_setup'
-import Instructions from '../generators/zones/instructions'
+import { Instructions } from '../generators/groups/'
 
-const GameStart = function(){
-
-};
+const GameStart = function () {}
 
 GameStart.prototype = {
   preload: function () {

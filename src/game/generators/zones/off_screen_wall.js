@@ -1,9 +1,9 @@
-import Core from '../core/'
+import { Floor } from '../core/'
 
 const OffScreenWall = function () {
   let ns = window.game_objs
 
-  let wall = Core.Floor.call(this,
+  let wall = Floor.call(this,
       {
         x: -1, y: 0,
         width: 1, height: this.game.world.height

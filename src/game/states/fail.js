@@ -1,8 +1,7 @@
 import preload from '../preload'
 
 import { QUOTE } from '../styles/text.js'
-import Core from '../generators/core'
-const { Button, Quote, Container, Background } = Core
+import { Button, Quote, Container, Background } from '../generators/core'
 
 const Fail = function () {}
 

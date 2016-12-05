@@ -1,10 +1,10 @@
-import Core from '../core/'
+import { Floor } from '../core/'
 
 const BoostCrate = function (dimensions) {
   let ns = window.game_objs
   let scale = 0.5
 
-  const crate = Core.Floor.call(this,
+  const crate = Floor.call(this,
     {
       x: dimensions.x, y: dimensions.y,
       width: 96 * scale, height: 96 * scale

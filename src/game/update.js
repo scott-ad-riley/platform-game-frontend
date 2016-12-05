@@ -3,8 +3,8 @@ import convertTime from '../convert_time.js'
 const update = function (onFail, onSuccess) {
   let ns = window.game_objs
 
-  // let successContact = this.game.physics.arcade.overlap(ns.player, ns.finishLine, onSuccess)
   let hazardContact = this.game.physics.arcade.overlap(ns.player, ns.hazards, onFail)
+  ns.hitBoosted = this.game.physics.arcade.collide(ns.player, ns.boostCrates)
 
   let cursors = this.game.input.keyboard.createCursorKeys()
 
@@ -33,7 +33,6 @@ const update = function (onFail, onSuccess) {
   ns.timerText.setText(" " + convertTime(ns.timer.seconds) + " ")
   ns.rubyCounter.setText(ns.current_rubies + '/' + ns.ruby_total)
   ns.game_time = ns.timer.seconds
-  // this.game.physics.arcade.collide(ns.stars, ns.ground)
   this.game.physics.arcade.overlap(ns.player, ns.rubies, onSuccess, null, this.game)
 }
 
